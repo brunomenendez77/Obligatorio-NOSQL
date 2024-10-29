@@ -1,8 +1,8 @@
 from fastapi import APIRouter, HTTPException, Query
-from app.model import HistorialMedico, RegistroMedico, Paciente
+from app.model import HistorialMedico, RegistroMedico, Paciente, TipoRegistro
 from app.db import pacientes_col, registros_medicos_col, historiales_medicos_col
 from bson import ObjectId
-from typing import List, Dict, Any
+from typing import List, Dict, Any, Optional
 
 router = APIRouter()
 
@@ -79,3 +79,31 @@ async def obtener_historial(ci: str, paginado: bool = False, pagina: int = 1, pa
 
     
     return historial
+
+
+#consulta por criterio
+@router.get("/registros/", response_model=List[RegistroMedico])
+async def obtener_registros_por_criterios(
+    tipo: Optional[TipoRegistro] = Query(None, description="Tipo de registro (consulta, examen, internacion)"),
+    diagnostico: Optional[str] = Query(None, description="Diagnóstico del registro"),
+    medico: Optional[str] = Query(None, description="Nombre del médico"),
+    institucion: Optional[str] = Query(None, description="Nombre de la institución")
+):
+    filtros = {}
+
+    #filtros
+    if tipo:
+        filtros["tipo"] = tipo
+    if diagnostico:
+        filtros["diagnostico"] = diagnostico
+    if medico:
+        filtros["medico"] = medico
+    if institucion:
+        filtros["institucion"] = institucion
+
+    resultados = list(registros_medicos_col.find(filtros))
+
+    if not resultados:
+        raise HTTPException(status_code=404, detail="No se encontraron registros con los criterios especificados")
+
+    return resultados
