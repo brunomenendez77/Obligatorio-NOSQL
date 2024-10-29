@@ -41,3 +41,17 @@ async def agregar_registro(registro: RegistroMedico, ci: str):
 
 
 #consultar historial de paciente
+@router.get("/historial/{ci}", response_model=HistorialMedico)
+async def obtener_historial(ci: str):
+    # Buscar el historial médico en la base de datos
+    historial_data = historiales_medicos_col.find_one({"paciente.ci": ci})
+    if not historial_data:
+        raise HTTPException(status_code=404, detail="No existe un paciente con la cédula aportada o no tiene historial.")
+
+    # Convertir los datos a objetos HistorialMedico
+    historial = HistorialMedico(
+        paciente=Paciente(**{**historial_data["paciente"], "_id": historial_data["paciente"]["ci"]}),
+        registros=[RegistroMedico(**registro) for registro in historial_data.get("registros", [])]
+    )
+    
+    return historial
