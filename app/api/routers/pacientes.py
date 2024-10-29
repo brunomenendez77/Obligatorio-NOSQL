@@ -13,7 +13,7 @@ def getPacientes():
     pacientes : List[Paciente] = []
     for item in pacientes_col.find():
         pacientes.append(Paciente(
-            ci = str(item["_id"]),
+            _id = str(item["_id"]),
             nombre = item["nombre"],
             apellido = item["apellido"],
             fecha_nacimiento = item["fecha_nacimiento"],

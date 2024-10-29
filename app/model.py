@@ -21,3 +21,5 @@ class RegistroMedico(BaseModel):
 class HistorialMedico(BaseModel):
     paciente: Paciente
     registros: List[RegistroMedico]
+    siguiente: str | None = None
+    previo: str | None = None
