@@ -30,4 +30,4 @@ def addPaciente(paciente: Paciente, response: Response):
         return {"mensaje": "Paciente registrado con exito"}
     except Exception as e:
         response.status_code = status.HTTP_400_BAD_REQUEST
-        return {"error": e.message}
+        return {"error": "El paciente ya existe"}
