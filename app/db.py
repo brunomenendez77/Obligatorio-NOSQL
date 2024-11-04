@@ -1,6 +1,8 @@
 from pymongo import MongoClient
+import os
 
-client = MongoClient("mongodb://localhost:27017/")
+conexion = os.getenv("CONEXION", "mongodb://localhost:27017/")
+client = MongoClient(conexion)
 db = client["mi_base_de_datos"]
 
 pacientes_col = db["pacientes"]
