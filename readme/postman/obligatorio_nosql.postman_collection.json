@@ -1,0 +1,138 @@
+{
+	"info": {
+		"_postman_id": "1417ff6f-7997-4592-91e0-708dea128a34",
+		"name": "obligatorio_nosql",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "39147069"
+	},
+	"item": [
+		{
+			"name": "agregar paciente",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"_id\": \"5454545\",\r\n    \"nombre\": \"Pepito\",\r\n    \"apellido\": \"Meqnendez\",\r\n    \"fecha_nacimiento\": \"1997-06-29\",\r\n    \"sexo\": \"masculino\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/pacientes",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"pacientes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "agregar registro medico",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"fecha\": \"2024-10-27\",\r\n    \"tipo\": \"consulta\",\r\n    \"diagnostico\": \"prueba\",\r\n    \"medico\": \"Dr. Smith\",\r\n    \"institucion\": \"Clinica ABC\",\r\n    \"descripcion\": \"Paciente presenta síntomas de gripe.\",\r\n    \"medicacion\": \"Paracetamol\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/registro/?ci=54343212",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"registro",
+						""
+					],
+					"query": [
+						{
+							"key": "ci",
+							"value": "54343212"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "obtener historial por ci",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/historial/54343212",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"historial",
+						"54343212"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "consultar registros por criterio",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/registros/?institucion=Clinica ABC",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"registros",
+						""
+					],
+					"query": [
+						{
+							"key": "medico",
+							"value": "Dr.%20Pepe",
+							"disabled": true
+						},
+						{
+							"key": "tipo",
+							"value": "consulta",
+							"disabled": true
+						},
+						{
+							"key": "institucion",
+							"value": "Clinica ABC"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
