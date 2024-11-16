@@ -37,10 +37,10 @@ FastAPI destaca por su rapidez de desarrollo, facilidad de uso y alto rendimient
 MongoDB permite almacenar datos en estructuras flexibles tipo JSON y ofrece un potente y sencillo lenguaje de consultas.
 
 Endpoints de servicios:
-Agregar paciente: http://127.0.0.1:8000/pacientes
-Agregar registro medico: http://127.0.0.1:8000/registro/?ci=54343212 (ci de ejemplo)
-Obtener historial de paciente: http://127.0.0.1:8000/historial/54343212 (ci de ejemplo)
-Consultar registros por criterio: http://127.0.0.1:8000/registros/?medico=Dr.%20Pepe&tipo=consulta&institucion=Clinica ABC (los criterios pueden variar)
+Agregar paciente: POST http://127.0.0.1:8000/pacientes
+Agregar registro medico: POST http://127.0.0.1:8000/registro/?ci=54343212 (ci de ejemplo)
+Obtener historial de paciente: GET http://127.0.0.1:8000/historial/54343212 (ci de ejemplo)
+Consultar registros por criterio: GET http://127.0.0.1:8000/registros/?medico=Dr.%20Pepe&tipo=consulta&institucion=Clinica ABC (los criterios pueden variar)
 
 *En el git se encuentra un archivo (readme/postman/obligatorio_nosql.postman_collection) para importar en Postman con ejemplos de ejecucion.
 
