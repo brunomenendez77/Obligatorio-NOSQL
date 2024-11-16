@@ -38,7 +38,7 @@ MongoDB permite almacenar datos en estructuras flexibles tipo JSON y ofrece un p
 
 Endpoints de servicios:
 Agregar paciente: http://127.0.0.1:8000/pacientes
-Agregar registro medico: http://localhost:8000/registro/?ci=54343212 (ci de ejemplo)
+Agregar registro medico: http://127.0.0.1:8000/registro/?ci=54343212 (ci de ejemplo)
 Obtener historial de paciente: http://127.0.0.1:8000/historial/54343212 (ci de ejemplo)
 Consultar registros por criterio: http://127.0.0.1:8000/registros/?medico=Dr.%20Pepe&tipo=consulta&institucion=Clinica ABC (los criterios pueden variar)
 
