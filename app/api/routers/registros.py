@@ -46,7 +46,10 @@ async def obtener_historial(ci: str, paginado: bool = False, pagina: int = 1, pa
     # Buscar el historial médico en la base de datos
     historial_data: dict = historiales_medicos_col.find_one({"paciente.ci": ci})
     if not historial_data:
-        raise HTTPException(status_code=402, detail="No existe un paciente con la cédula aportada o no tiene historial.")
+        raise HTTPException(
+            status_code=402,
+            detail="No existe un paciente con la cédula aportada o no tiene historial."
+        )
     registrosPaginados = []
     siguiente = None
     previo = None
