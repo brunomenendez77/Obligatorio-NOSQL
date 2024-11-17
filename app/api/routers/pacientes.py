@@ -29,5 +29,5 @@ def addPaciente(paciente: Paciente, response: Response):
         pacientes_col.insert_one(paciente_dict)
         return {"mensaje": "Paciente registrado con exito"}
     except Exception as e:
-        response.status_code = status.HTTP_400_BAD_REQUEST
+        response.status_code = status.HTTP_401_UNAUTHORIZED
         return {"error": "El paciente ya existe"}
