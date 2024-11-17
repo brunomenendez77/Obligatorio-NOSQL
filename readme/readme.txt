@@ -43,7 +43,7 @@ Obtener historial de paciente: GET http://127.0.0.1:8000/historial/54343212 (ci 
 Consultar registros por criterio: GET http://127.0.0.1:8000/registros/?medico=Dr.%20Pepe&tipo=consulta&institucion=Clinica ABC (los criterios pueden variar)
 
 *En el git se encuentra un archivo (readme/postman/obligatorio_nosql.postman_collection) para importar en Postman con ejemplos de ejecucion.
-
+*Tambien puede ingresar a http://localhost:8000/docs para ver y ejecutar los diferentes endpoints
 
 Como ejecutar:
 Es necesario tener instalado Docker Desktop, una vez instalado ejecutar el programa
